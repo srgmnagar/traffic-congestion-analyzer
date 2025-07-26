@@ -84,7 +84,6 @@ ipython_config.py
 
 
 # Ignore all .csv files except sample
-data/*
 !data/sample_data.csv
 !data/README.md
 
