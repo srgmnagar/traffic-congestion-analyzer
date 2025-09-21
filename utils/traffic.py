@@ -1,10 +1,8 @@
 import time
 import requests
 
-# TomTom API key
 API_KEY = "fjbIvblscE9aaoZhczJxUaZQuJAeGtsu"
 
-# List of diverse locations (Mumbai + Navi Mumbai)
 locations = [
     {"name": "Dadar",     "lat": 19.0176, "lon": 72.8562},
     {"name": "Andheri",   "lat": 19.1197, "lon": 72.8468},
@@ -37,7 +35,7 @@ def insert_traffic_data(location_name, lat, lon, current_speed, free_flow_speed,
 
     conn.commit()
     conn.close()
-    print(f"✅ Data inserted for {location_name} at {timestamp}")
+    print(f"data inserted for {location_name} at {timestamp}")
 
 
 # Fetch and insert traffic data for all locations
@@ -65,12 +63,12 @@ def fetch_and_store_all_locations():
             print("done")
 
         except Exception as e:
-            print(f"❌ Failed for {loc['name']}: {e}")
+            print(f"failed for {loc['name']}: {e}")
 
 # Run every 15 minutes
 if __name__ == "__main__":
     while True:
-        print("\n⏳ Fetching traffic data for all locations...")
+        print("\nFetching traffic data for all locations...")
         fetch_and_store_all_locations()
-        print("✅ All locations fetched and stored. Waiting 15 minutes...\n")
+        print("All locations fetched and stored. Waiting 15 minutes...\n")
         time.sleep(15 * 60)  # Wait for 15 minutes (900 seconds)
