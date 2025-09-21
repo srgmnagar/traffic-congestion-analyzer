@@ -38,7 +38,6 @@ def insert_traffic_data(location_name, lat, lon, current_speed, free_flow_speed,
     print(f"data inserted for {location_name} at {timestamp}")
 
 
-# Fetch and insert traffic data for all locations
 def fetch_and_store_all_locations():
     for loc in locations:
         try:
@@ -65,10 +64,10 @@ def fetch_and_store_all_locations():
         except Exception as e:
             print(f"failed for {loc['name']}: {e}")
 
-# Run every 15 minutes
+
 if __name__ == "__main__":
     while True:
         print("\nFetching traffic data for all locations...")
         fetch_and_store_all_locations()
         print("All locations fetched and stored. Waiting 15 minutes...\n")
-        time.sleep(15 * 60)  # Wait for 15 minutes (900 seconds)
+        time.sleep(15 * 60) 
